@@ -57,8 +57,8 @@ async fn actix_web(
 
 #[derive(Serialize, FromRow)]
 struct Attempts {
-    pub successfulls: i32,
-    pub faileds: i32,
+    pub successfulls: i64,
+    pub faileds: i64,
 }
 
 #[derive(Serialize, FromRow)]
