@@ -24,7 +24,7 @@ async fn attempt(state: web::Data<AppState>) -> Result<Json<Attempt>> {
         successfull: random(),
     };
     attempt =
-        sqlx::query_as("INSERT INTO attempt(successfull) VALUES $1 Returning id, successfull")
+        sqlx::query_as("INSERT INTO attempt(successfull) VALUES ($1) Returning id, successfull")
             .bind(&attempt.successfull)
             .fetch_one(&state.pool)
             .await
